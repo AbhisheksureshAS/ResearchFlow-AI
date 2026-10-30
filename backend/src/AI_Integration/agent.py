@@ -12,14 +12,14 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
 
-llm=ChatGoogleGenerativeAI(model='gemini-3.8-flash')
+# llm=ChatGoogleGenerativeAI(model='gemini-3.8-flash')
 
 # llm=ChatOllama(
 #     model='gemma3:4b'
 # )
-# llm=ChatGroq(
-#     model='whisper-large-v3',
-# )
+llm=ChatGroq(
+    model='openai/gpt-oss-20b',
+)
 # llm=ChatMetaModel(model='muse-spark-1.1',api_key=os.getenv('MODEL_API_KEY'))
 
 search=GoogleSerperAPIWrapper()
