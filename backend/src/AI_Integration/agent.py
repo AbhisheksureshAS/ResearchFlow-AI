@@ -7,15 +7,20 @@ from dotenv import load_dotenv
 from backend.src.AI_Integration.system_prompt import researcher_system_prompt,writer_system_prompt,editor_system_prompt
 from langchain_community.utilities import GoogleSerperAPIWrapper
 from langchain_ollama import ChatOllama
+from langchain_meta import ChatMetaModel
+import os
+from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
+
+llm=ChatGoogleGenerativeAI(model='gemini-3.8-flash')
 
 # llm=ChatOllama(
 #     model='gemma3:4b'
 # )
-llm=ChatGroq(
-    model='openai/gpt-oss-120b',
-    max_tokens=1024
-)
+# llm=ChatGroq(
+#     model='whisper-large-v3',
+# )
+# llm=ChatMetaModel(model='muse-spark-1.1',api_key=os.getenv('MODEL_API_KEY'))
 
 search=GoogleSerperAPIWrapper()
 @tool

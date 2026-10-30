@@ -23,6 +23,7 @@ def research_node(state: ResearchState):
     return {
         "research": response["messages"][-1].content,
         "review_stage": "research",
+        "approved": False
     }
 
 def writer_node(state: ResearchState):
@@ -49,6 +50,8 @@ def writer_node(state: ResearchState):
     return {
         "draft": response["messages"][-1].content,
         "review_stage": "writer",
+        
+        "approved": False
     }
 
 
@@ -75,6 +78,7 @@ def editor_node(state: ResearchState):
     return {
         "final_blog": response["messages"][-1].content,
         "review_stage": "editor",
+        "approved": False
     }
 
 def human_review_node(state: ResearchState):
